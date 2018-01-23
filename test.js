@@ -30,26 +30,25 @@ describe('valid easy test cases', () => {
   test('test case 3 with 1 strike 1 spare ', () => {
     expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(100);
   });
-
-  test('test case 4 with many strikes ', () => {
-    expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 10, 3, 6, 3, 6, 10, 3, 6])).toBe(120);
-  });
 });
 
 
 describe('invalid test cases', () => {
-  test('test case 1 without any strike spare', () => {
+  test('test case 1 without any strike spare size less', () => {
     expect(bowling([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(false);
   });
 
-  test('test case 2 with 1 strike ', () => {
+  test('empty ', () => {
     expect(bowling([])).toBe(false);
   });
-  // test('test case 3 with 1 strike 1 spare ', () => {
-  //   expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(100);
-  // });
-  //
-  // test('test case 4 with many strikes ', () => {
-  //   expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 10, 3, 6, 3, 6, 10, 3, 6])).toBe(120);
-  // });
+  test('size less ', () => {
+    expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(false);
+  });
+
+  test('test case 4 more than 10', () => {
+    expect(bowling([10, 11, 6, 3, 6, 3, 6, 3, 6, 10, 3, 6, 3, 6, 10, 3, 6])).toBe(false);
+  });
+  test('test case 4 with many strikes ', () => {
+    expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 10, 3, 6, 3, 6, 10, 3, 6])).toBe(false);
+  });
 });
