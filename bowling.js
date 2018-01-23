@@ -29,10 +29,13 @@ function inputValidate(inputArr) {
       break;
     }
   }
+  if (count < 10) {
+    return false;
+  }
   return true;
 }
 
-// console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
+console.log(inputValidate([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]));
 // console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 6, 3]));
 // console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 4, 5]));
 // console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10]));
