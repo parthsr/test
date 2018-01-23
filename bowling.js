@@ -8,13 +8,44 @@
 
 // determine the length of the last frame
 function inputValidate(inputArr) {
-  for (let i = 0; i < inputArr.length; i++) {
-    if (inputArr[i] < 0) {
-      return false;
-    }
-    if()
+  let count = 0;
+  let jump = 1;
+  console.log(inputArr.length);
+  if (inputArr.length < 11) {
+    console.log('array size less');
+    return false;
   }
+  for (let i = 0; i < inputArr.length - 1; i += jump) {
+    if (inputArr[i] < 0 && inputArr[i] > 10) {
+      console.log('invalid input. frame negative');
+      return false;
+    } else if (inputArr[i] === 10) {
+      count += 1;
+      jump = 1;
+    } else if (inputArr[i] + inputArr[i + 1] > 10) {
+      console.log('invalid input. Frame invalid');
+      return false;
+    } else {
+      jump = 2;
+      count += 1;
+    }
+    if (count === 9) {
+      if (inputArr.length - i - 1 > 3) {
+        console.log(inputArr.length, i, 'invalid input. size invalid');
+        return false;
+      }
+      break;
+    }
+  }
+  return true;
 }
+
+console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
+console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 6, 3]));
+console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 4, 5]));
+console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10]));
+console.log(inputValidate([10, 9, 11, 10, 10, 10, 3, 2, 10, 10, 10, 4, 5]));
+
 
 function deter(inputArr) {
   let count = 0;
@@ -51,7 +82,6 @@ function calculate(inputArr) {
   let scoreIterator = 0;
   let jumpForInputIterator = 1;
   for (let i = 0; i < inputArr.length - lastframelength; i += jumpForInputIterator) {
-    console.log(i);
     let frame = inputArr[i] + inputArr[i + 1];
     if (inputArr[i] === 10) {
       jumpForInputIterator = 1;
