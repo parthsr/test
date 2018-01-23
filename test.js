@@ -42,9 +42,9 @@ describe('invalid test cases', () => {
     expect(bowling([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(false);
   });
 
-  // test('test case 2 with 1 strike ', () => {
-  //   expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(100);
-  // });
+  test('test case 2 with 1 strike ', () => {
+    expect(bowling([])).toBe(false);
+  });
   // test('test case 3 with 1 strike 1 spare ', () => {
   //   expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(100);
   // });
