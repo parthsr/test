@@ -1,12 +1,4 @@
-// function score(inputArr) {
-//   // validation(inputArr);
-//   calculate(inputArr);
-// }
 
-// module.exports = score;
-
-
-// determine the length of the last frame
 function inputValidate(inputArr) {
   let count = 0;
   let jump = 1;
@@ -40,11 +32,11 @@ function inputValidate(inputArr) {
   return true;
 }
 
-console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
-console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 6, 3]));
-console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 4, 5]));
-console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10]));
-console.log(inputValidate([10, 9, 11, 10, 10, 10, 3, 2, 10, 10, 10, 4, 5]));
+// console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
+// console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 6, 3]));
+// console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10, 4, 5]));
+// console.log(inputValidate([10, 10, 10, 10, 10, 10, 10, 10, 10]));
+// console.log(inputValidate([10, 9, 11, 10, 10, 10, 3, 2, 10, 10, 10, 4, 5]));
 
 
 function deter(inputArr) {
@@ -62,22 +54,18 @@ function deter(inputArr) {
   }
   return inputArr.length - 1 - s;
 }
+// console.log(deter([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 10, 5, 4]) === 3);
+// console.log(deter([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]) === 2);
+// console.log(deter([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]) === 2);
 
-// onsole.log();
 function calculate(inputArr) {
+  let check = inputValidate(inputArr);
+  if (check === false) {
+    return false;
+  }
   const scores = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   let lastframelength = deter(inputArr);
   console.log('lastframelength', lastframelength);
-  // let strike = [];
-  // for (let i = 0; i < inputArr.length - lastframelength; i += 1) {
-  //   if (inputArr[i] === 10) {
-  //     strike.push(i);
-  //   }
-  //   for (let i = 0; i < strike.length; i += 1) {
-  //     scores[strike[i]] = inputArr[strike[i] + 1] + inputArr[strike[i] + 2] + 10;
-  //   }
-  // }
-  // console.log(strike);
   console.log(scores);
   let scoreIterator = 0;
   let jumpForInputIterator = 1;
@@ -97,16 +85,18 @@ function calculate(inputArr) {
       scoreIterator += 1;
     }
   }
-
-
   for (let i = inputArr.length - lastframelength; i < inputArr.length; i += 1) {
-    scores[scoreIterator] = scores[scoreIterator] + inputArr[i];
+    scores[scoreIterator] += inputArr[i];
   }
   console.log(scores);
-  return 0;
+  let sum = scores.reduce((a, b) => a + b, 0);
+  console.log(sum);
+  return sum;
 }
-calculate([10, 10, 10, 3, 7, 3, 6, 3, 6, 3, 6, 10, 10, 10, 10, 2]);
+// calculate([10, 10, 10, 3, 7, 3, 6, 3, 6, 3, 6, 10, 10, 10, 10, 2]);
 
 //   for(let i = inputArr.length - lastframelength -1; i<inputArr.length)
 //   return 0;
 // }
+
+module.exports = calculate;
