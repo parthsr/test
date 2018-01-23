@@ -24,7 +24,11 @@ describe('valid easy test cases', () => {
     expect(bowling([3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(90);
   });
 
-  test('test case 1 with 1 strike ', () => {
-    expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(100);
-  });
+  // test('test case 1 with 1 strike ', () => {
+  //   expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(100);
+  // });
+  //
+  // test('test case 1 with 1 strike ', () => {
+  //   expect(bowling([10, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6])).toBe(100);
+  // });
 });
