@@ -29,7 +29,9 @@ function inputValidate(inputArr) {
       break;
     }
   }
-
+  if (count !== 9) {
+    return false;
+  }
   return true;
 }
 
