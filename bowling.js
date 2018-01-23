@@ -30,6 +30,7 @@ function inputValidate(inputArr) {
     }
   }
   if (count !== 9) {
+    console.log('wrong');
     return false;
   }
   return true;
